@@ -1,39 +1,3 @@
-<?php
-ob_start();
-$API_KEY = '911144371:AAFW4W3sHnM9eqmMO4t6P0USOqATpcQLSf4';
-define('API_KEY',$API_KEY);
-echo file_get_contents("https://api.telegram.org/bot" . API_KEY . "/setwebhook?url=" . $_SERVER['SERVER_NAME'] . "" . $_SERVER['SCRIPT_NAME']);
-function bot($method,$datas=[]){
-$smilestatus = http_build_query($datas);
-$url = "https://api.telegram.org/bot".API_KEY."/".$method."?$smilestatus";
-$smilestatush = file_get_contents($url);
-return json_decode($smilestatush);}
- function sendmessage($chat_id, $text, $model){
-	bot('sendMessage',[
-	'chat_id'=>$chat_id,
-	'text'=>$text,
-	'parse_mode'=>$mode
-	]);
-	}
-	function sendaction($chat_id, $action){
-	bot('sendchataction',[
-	'chat_id'=>$chat_id,
-	'action'=>$action
-	]);
-	}
-	function Forward($KojaShe,$AzKoja,$KodomMSG)
-{
-    bot('ForwardMessage',[
-        'chat_id'=>$KojaShe,
-        'from_chat_id'=>$AzKoja,
-        'message_id'=>$KodomMSG
-    ]);
-}
-function sendphoto($chat_id, $photo, $action){
-	bot('sendphoto',[
-	'chat_id'=>$chat_id,
-	'photo'=>$photo,
-	'action'=>$action
 	]);
 	}
 	function objectToArrays($object)
